@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout Source') {
             steps {
-                git 'https://github.com/ChaimaBouhlel/poke-store.git'
+                git branch: 'main', url: 'https://github.com/ChaimaBouhlel/devops-lab-kubernetes.git'
             }
         }
         stage('Build image') {
