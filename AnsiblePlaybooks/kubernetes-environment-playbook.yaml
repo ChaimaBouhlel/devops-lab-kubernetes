@@ -45,10 +45,10 @@
       shell: apt-get install azure-cli
     
     - name: Connect To Azure 
-      shell: az login --username "{{ username }}" --password "{{ password }}" --tenant "{{ tenant }}" 
+      shell: az login --username "{{ username }}" --password "{{ password }}"
 
     - name: Setting Azure Subscription
       shell: az account set --subscription "{{ subscription }}"
 
     - name: Downloading AKS Cluster Kubeconfig
-      shell: az aks get-credentials --resource-group demo --name KubernetesLab
+      shell: az aks get-credentials --resource-group demo --name devops-lab
