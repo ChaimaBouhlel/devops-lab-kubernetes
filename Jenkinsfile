@@ -1,7 +1,8 @@
 pipeline {
-    environment {
-        dockerimagename = "chaimabouhlel/poke-store"
-        dockerimagetag = "v1"
+     environment {
+        DOCKERHUB_CREDENTIALS = credentials('docker-hub-credentials')
+        registry = 'chaimabouhlel/poke-store'
+        registryCredential = 'docker-hub-credentials'
         dockerImage = ''
     }
     agent any
@@ -17,7 +18,7 @@ pipeline {
         stage('Build image') {
             steps{
                 script {
-                    dockerImage = docker.build("${dockerimagename}:${dockerimagetag}")
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -28,7 +29,7 @@ pipeline {
             steps{
                 script {
                     docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-                        dockerImage.push dockerimagetag
+                        dockerImage.push()
                     }
                 }
             }
