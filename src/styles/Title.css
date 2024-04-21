@@ -1,0 +1,19 @@
+.heading-custom{
+    padding: 50px 50px 0px ;
+    font-size: 3 rem;
+}
+.display-1{
+    font-weight: 700;
+}
+
+.display-3{
+    padding-bottom: 20px;
+}
+
+.section-title{
+    background-color: rgb(162, 187, 199);
+    padding: 2%  10%;
+}
+.title-image{
+    padding-left: 100px;
+}
