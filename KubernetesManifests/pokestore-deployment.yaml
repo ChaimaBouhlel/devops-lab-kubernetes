@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokestore-deployment
+  labels:
+    app: pokestore
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: pokestore
+  template:
+    metadata:
+      name: pokestore-app
+      labels:
+        app: pokestore
+    spec:
+      containers:
+      - name: pokestore-container
+        image: chaimabouhlel/poke-store:2.0.0
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
