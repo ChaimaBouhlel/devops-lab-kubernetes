@@ -10,7 +10,7 @@ pipeline {
         nodejs 'node21'
     }
     stages {
-        stage('Checkout Source') {
+        stage('Fetch Code') {
             steps {
                 git branch: 'main', url: 'https://github.com/ChaimaBouhlel/devops-lab-kubernetes.git'
             }
