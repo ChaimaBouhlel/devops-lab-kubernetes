@@ -4,6 +4,7 @@ pipeline {
         registry = 'chaimabouhlel/poke-store'
         registryCredential = 'docker-hub-credentials'
         dockerImage = ''
+        dockerImageVersion = 'v1'
     }
     agent any
      tools {
@@ -18,7 +19,7 @@ pipeline {
         stage('Build image') {
             steps{
                 script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + dockerImageVersion
                 }
             }
         }
