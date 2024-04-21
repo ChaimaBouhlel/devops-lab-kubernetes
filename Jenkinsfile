@@ -5,6 +5,9 @@ pipeline {
         dockerImage = ''
     }
     agent any
+     tools {
+        nodejs 'node21'
+    }
     stages {
         stage('Checkout Source') {
             steps {
