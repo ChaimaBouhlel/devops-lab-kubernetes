@@ -1,23 +1,19 @@
-# Utiliser une image de base Node.js
-FROM node:14-alpine
+# Use the official Node.js image as base
+FROM node:18-alpine
 
-# Définir le répertoire de travail dans le conteneur
-WORKDIR /app
-
-# Copier le package.json et le package-lock.json
+# Copy package.json and package-lock.json (if available)
 COPY package*.json ./
 
-# Installer les dépendances
+# Install dependencies
 RUN npm install
 
-# Copier les fichiers de l'application
+# Copy the rest of the application code
 COPY . .
 
-# Construire l'application React
+# Build the Next.js application
 RUN npm run build
 
-# Exposer le port 3000 pour accéder à l'application
 EXPOSE 3000
 
-# Commande pour démarrer l'application
-CMD ["npm", "start"]
+# Run the Next.js application
+CMD ["npm", "run", "dev"]
