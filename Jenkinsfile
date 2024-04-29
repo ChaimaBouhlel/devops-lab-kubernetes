@@ -47,7 +47,7 @@ pipeline {
         stage('Deploying pokestore Application to Kubernetes') {
             steps {
                 script {
-                    sh "kubectl set image deployment/pokestore-deployment pokestore-container=${dockerImage}:${dockerimagetag}"
+                    sh "kubectl set image deployment/pokestore-deployment pokestore-container=${registry}:${dockerimagetag}"
                 }
             }
         }
