@@ -39,10 +39,10 @@
         tee /etc/apt/sources.list.d/azure-cli.list
 
     - name: Update APT package cache after adding the repository
-      shell: apt-get update
+      shell: apt-get update -y
 
     - name: Install Docker and Dependencies
-      shell: apt-get install azure-cli
+      shell: apt-get install azure-cli -y
     
     - name: Connect To Azure 
       shell: az login --username "{{ username }}" --password "{{ password }}"
