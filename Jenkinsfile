@@ -4,7 +4,7 @@ pipeline {
         registry = 'chaimabouhlel/poke-store'
         registryCredential = 'docker-hub-credentials'
         dockerImage = ''
-        dockerimagetag = 'v1'
+        dockerimagetag = 'v2'
     }
     agent any
      tools {
@@ -47,7 +47,7 @@ pipeline {
         stage('Deploying pokestore Application to Kubernetes') {
             steps {
                 script {
-                    sh "kubectl set image deployment/pokestore-deployment pokestore-container=${dockerimagename}:${dockerimagetag}"
+                    sh "kubectl set image deployment/pokestore-deployment pokestore-container=${dockerImage}:${dockerimagetag}"
                 }
             }
         }
