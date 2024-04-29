@@ -4,7 +4,7 @@ pipeline {
         registry = 'chaimabouhlel/poke-store'
         registryCredential = 'docker-hub-credentials'
         dockerImage = ''
-        dockerimagetag = 'v2'
+        dockerimagetag = 'v3'
     }
     agent any
      tools {
