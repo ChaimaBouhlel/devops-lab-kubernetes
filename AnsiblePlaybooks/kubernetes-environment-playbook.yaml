@@ -26,7 +26,7 @@
       when: file_stat.stat.exists
 
     - name: Perform a different task if the file does not exist
-      shell: curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null
+      shell: curl -sLS https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/keyrings/microsoft.gpg > /dev/null
       when: not file_stat.stat.exists
     
     - name: Changing file Permissions
