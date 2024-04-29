@@ -51,7 +51,7 @@
       shell: az account set --subscription "{{ subscription }}"
 
     - name: Downloading AKS Cluster Kubeconfig
-      shell: az aks get-credentials --resource-group demo --name devops-lab
+      shell: az aks get-credentials --resource-group devops-lab --name devops-lab
 
 
       
